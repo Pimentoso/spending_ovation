@@ -1,2 +1,10 @@
-<div id="<%= dom_id payment %>">
-</div>
+<td><%= payment.date %></td>
+<td><%= payment.description %></td>
+<td class="has-text-centered">
+    <% if payment.inbound? %>
+    <span class="tag is-success">IN</span>
+    <% else %>
+    <span class="tag is-danger">OUT</span>
+    <% end %>
+</td>
+<td class="has-text-centered"><%= number_to_currency(payment.amount.to_f/100, unit: '€', format: '%u %n') %></td>

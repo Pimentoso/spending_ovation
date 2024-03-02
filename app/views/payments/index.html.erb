@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <h1 class="title">Payments</h1>
+  <p style="color: green"><%= notice %></p>
 
-<h1>Payments</h1>
 
-<div id="payments">
-  <% @payments.each do |payment| %>
-    <%= render payment %>
-    <p>
-      <%= link_to "Show this payment", payment %>
-    </p>
-  <% end %>
+  <div id="payments">
+    <table class="table is-striped is-hoverable">
+      <thead>
+        <tr>
+          <th style="min-width: 8em;">Date</th>
+          <th></th>
+          <th></th>
+          <th class="has-text-centered" style="min-width: 8em;">Amount</th>
+        </tr>
+      </thead>
+
+    <% @payments.each do |payment| %>
+      <tr id="<%= dom_id payment %>">
+        <%= render payment %>
+      </tr>
+    <% end %>
+    <table>
+  </div>
+
+  <%= link_to "New payment", new_payment_path %>
 </div>
-
-<%= link_to "New payment", new_payment_path %>
