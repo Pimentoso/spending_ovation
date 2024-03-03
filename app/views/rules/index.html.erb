@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="title">Rules</h1>
+  <p style="color: green"><%= notice %></p>
+
+  <div id="rules">
+      <table class="table is-striped is-hoverable">
+        <thead>
+          <tr>
+            <th>Operator</th>
+            <th style="min-width: 25em;"></th>
+            <th>Action</th>
+            <th></th>
+          </tr>
+        </thead>
+
+      <% @rules.each do |rule| %>
+        <tr id="<%= dom_id rule %>">
+          <%= render rule %>
+        </tr>
+      <% end %>
+      <table>
+  </div>
+
+  <%= link_to "New rule", new_rule_path %>
+</div>
